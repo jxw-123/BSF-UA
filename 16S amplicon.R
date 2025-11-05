@@ -113,6 +113,13 @@ plot_bar(ps_merged, x = "id", fill = "Family") +
   theme_bw() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
+group_info <- data.frame(sample_data(ps))$group
+
+permanova_result <- adonis2(bray_dist ~ group_info, permutations = 999)
+
+print("PERMANOVA Results:")
+print(permanova_result)
+
 
 
 
